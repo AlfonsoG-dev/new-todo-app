@@ -39,11 +39,6 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange }) {
             return (
                 <div>
                     <div style={{ textDecoration: 'line-through', color: 'black' }}>
-                        <input
-                            type="checkbox"
-                            value={completar}
-                            onClick={() => setCompletar(!completar)}
-                        />
                         {subtarea.descripcion}
                     </div>
                     <div className="tarea-options">

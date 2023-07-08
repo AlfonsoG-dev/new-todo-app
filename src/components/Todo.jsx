@@ -38,7 +38,6 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
             return (
                 <div>
                     <div style={{ textDecoration: 'line-through', color: 'red' }}>
-                        <input type="checkbox" value={completar} onClick={() => setCompletar(!completar)} />
                         {tarea.descripcion}
                     </div>
                     <div className="tarea-options" >
