@@ -4,13 +4,15 @@ import AddTodo from "./AddTodo"
 import TodoList from "./TodoList"
 export default function TodoContainer({ listaDatos }) {
     const [tareas, setTareas] = useState(listaDatos)
+    console.log(tareas)
     function agregarTarea(nTarea) {
         setTareas([
             ...tareas,
             {
                 id: nTarea.id,
                 descripcion: nTarea.descripcion,
-                completada: nTarea.completada
+                completada: nTarea.completada,
+                subtarea: nTarea.subtarea
             }
         ])
     }
