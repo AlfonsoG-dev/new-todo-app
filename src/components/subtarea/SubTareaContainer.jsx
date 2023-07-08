@@ -17,6 +17,17 @@ export default function SubTareaContainer({ listaSubtareas }) {
     function eliminarSubTarea(subTareaId) {
         setSubTareas(subTareas.filter((t) => t.id !== subTareaId))
     }
+    function handleSubTareaChange(nSubTarea) {
+        setSubTareas(
+            subTareas.map((t) => {
+                if (t.id === nSubTarea.id) {
+                    return nSubTarea;
+                } else {
+                    return t;
+                }
+            })
+        )
+    }
     return (
         <>
             <AddSubTarea
@@ -25,6 +36,7 @@ export default function SubTareaContainer({ listaSubtareas }) {
             />
             <SubTareaList
                 eliminarSubTarea={eliminarSubTarea}
+                handleChange={handleSubTareaChange}
                 subTareaList={subTareas}
             />
         </>
