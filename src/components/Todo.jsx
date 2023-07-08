@@ -32,7 +32,6 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                         <div className="tarea-options" >
                             <button onClick={() => setEditada(true)}>Editar</button>
                             <button onClick={() => handleEliminarTarea(tarea.id)}>Eliminar</button>
-                            <button>Add</button>
                         </div >
                     </ >
                 )
