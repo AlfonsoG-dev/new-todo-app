@@ -2,7 +2,8 @@
 import { useState } from "react"
 export default function AddSubTarea({ datos, addSubTarea }) {
     const [descripcion, setDescripcion] = useState('')
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(datos.length)
+    console.log(index)
     function handleClickAdd() {
         const newTarea = {
             id: index,
