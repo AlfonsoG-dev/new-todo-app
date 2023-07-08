@@ -9,7 +9,8 @@ export default function AddTodo({ addTarea }) {
         const newTarea = {
             id: index,
             descripcion: descripcion,
-            completada: false
+            completada: false,
+            subtarea: []
         }
         addTarea(newTarea)
         setDescripcion("")
