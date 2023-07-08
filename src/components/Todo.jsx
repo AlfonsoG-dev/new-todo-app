@@ -10,7 +10,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                 <>
                     <input
                         type="text"
-                        value={tarea.descripcion}
+                        defaultValue={tarea.descripcion}
                         onChange={(e) => handleChangeTarea({
                             ...tarea,
                             descripcion: e.target.value
@@ -19,36 +19,35 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                     <button onClick={() => setEditada(false)}>Guardar</button>
                 </>
             )
-        } else {
-            if (!completar) {
-                return (
-                    <>
-                        <input
-                            type="checkbox"
-                            value={completar}
-                            onClick={(e) => setCompletar(e.target.checked)}
-                        />
-                        {tarea.descripcion}
-                        <div className="tarea-options" >
-                            <button onClick={() => setEditada(true)}>Editar</button>
-                            <button onClick={() => handleEliminarTarea(tarea.id)}>Eliminar</button>
-                        </div >
-                    </ >
-                )
-            } else {
-                return (
-                    <div>
-                        <div style={{ textDecoration: 'line-through', color: 'red' }}>
-                            <input type="checkbox" value={completar} onClick={() => setCompletar(!completar)} />
-                            {tarea.descripcion}
-                        </div>
-                        <div className="tarea-options" >
-                            <button onClick={() => handleEliminarTarea(tarea.id)}>Eliminar</button>
-                        </div >
+        } else if (!completar) {
+            return (
+                <>
+                    <input
+                        type="checkbox"
+                        value={completar}
+                        onClick={(e) => setCompletar(e.target.checked)}
+                    />
+                    {tarea.descripcion}
+                    <div className="tarea-options" >
+                        <button onClick={() => setEditada(true)}>Editar</button>
+                        <button onClick={() => handleEliminarTarea(tarea.id)}>Eliminar</button>
                     </div >
-                )
-            }
+                </ >
+            )
+        } else {
+            return (
+                <div>
+                    <div style={{ textDecoration: 'line-through', color: 'red' }}>
+                        <input type="checkbox" value={completar} onClick={() => setCompletar(!completar)} />
+                        {tarea.descripcion}
+                    </div>
+                    <div className="tarea-options" >
+                        <button onClick={() => handleEliminarTarea(tarea.id)}>Eliminar</button>
+                    </div >
+                </div >
+            )
         }
+
     }
 
     return (
