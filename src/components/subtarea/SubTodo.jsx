@@ -43,6 +43,7 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange }) {
                     </div>
                     <div className="tarea-options">
                         <button onClick={() => eliminarSubTarea(subtarea.id)}>Eliminar</button>
+                        <button onClick={() => setCompletar(false)}>Restaurar</button>
                     </div>
                 </div>
             )

@@ -42,6 +42,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                     </div>
                     <div className="tarea-options" >
                         <button onClick={() => handleEliminarTarea(tarea.id)}>Eliminar</button>
+                        <button onClick={() => setCompletar(false)}>Restaurar</button>
                     </div >
                 </div >
             )
