@@ -1,7 +1,31 @@
-export default function AddSubTarea() {
+/* eslint-disable react/prop-types */
+import { useState } from "react"
+export default function AddSubTarea({ datos, addSubTarea }) {
+    const [descripcion, setDescripcion] = useState('')
+    const [index, setIndex] = useState(datos.length)
+    function handleClickAdd() {
+        const newTarea = {
+            id: index,
+            descripcion: descripcion,
+            completada: false,
+            subtarea: []
+        }
+        addSubTarea(newTarea)
+        setDescripcion("")
+        setIndex(index + 1)
+    }
     return (
-        <div>
-            agregar subTarea
+        <div className="new-tarea">
+            <label htmlFor="descripcion">
+                <input
+                    type="text"
+                    name="descripcion"
+                    id="descripcion"
+                    value={descripcion}
+                    onChange={(e) => setDescripcion(e.target.value)}
+                />
+            </label>
+            <button onClick={handleClickAdd}>Add</button>
         </div>
     )
 }
