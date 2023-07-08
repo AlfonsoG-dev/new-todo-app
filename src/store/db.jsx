@@ -24,19 +24,19 @@ const datos = [
         id: 1,
         descripcion: "comprar frutas",
         comletada: false,
-        subtarea: [{ id: 0 }]
+        subtarea: []
     },
     {
         id: 2,
         descripcion: "comprar pan",
         comletada: false,
-        subtarea: [{ id: 0 }]
+        subtarea: []
     },
     {
         id: 3,
         descripcion: "tender la cama",
         comletada: false,
-        subtarea: [{ id: 0 }]
+        subtarea: []
     },
 ]
 export default datos;
