@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import SubTareaList from "./subTareaList";
-import AddSubTarea from "./AddSubTarea";
+import SubTareaList from "./SubTodoList";
+import AddSubTarea from "./AddSubTodo";
 import { useState } from "react";
 export default function SubTareaContainer({ listaSubtareas }) {
     const [subTareas, setSubTareas] = useState(listaSubtareas)
