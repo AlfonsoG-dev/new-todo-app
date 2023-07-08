@@ -1,46 +1,63 @@
 import { useState } from "react"
 
 /* eslint-disable react/prop-types */
-export default function SubTarea({ subtarea, eliminarSubTarea }) {
+export default function SubTarea({ subtarea, eliminarSubTarea, handleChange }) {
+    const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
 
     const content = () => {
-        if (!completar) {
+        if (editada) {
+            return (
+                <>
+                    <input
+                        type="text"
+                        defaultValue={subtarea.descripcion}
+                        onChange={(e) => handleChange({
+                            ...subtarea,
+                            decripcion: e.target.value
+                        })}
+                    />
+                    <button onClick={() => setEditada(false)}>Guardar</button>
+                </>
+            )
+        } else if (!completar) {
             return (
                 <>
                     <input
                         type="checkbox"
                         value={completar}
-                        onChange={() => setCompletar(!completar)}
+                        onClick={(e) => setCompletar(e.target.checked)}
                     />
                     {subtarea.descripcion}
                     <div className="tarea-options">
-                        <button>Editar</button>
+                        <button onClick={() => setEditada(true)}>Editar</button>
                         <button onClick={() => eliminarSubTarea(subtarea.id)}>Eliminar</button>
                     </div>
                 </>
             )
         } else {
             return (
-                <>
+                <div>
                     <div style={{ textDecoration: 'line-through', color: 'black' }}>
                         <input
                             type="checkbox"
                             value={completar}
-                            onChange={() => setCompletar(!completar)}
+                            onClick={() => setCompletar(!completar)}
                         />
                         {subtarea.descripcion}
                     </div>
                     <div className="tarea-options">
                         <button onClick={() => eliminarSubTarea(subtarea.id)}>Eliminar</button>
                     </div>
-                </>
+                </div>
             )
         }
     }
     return (
         <li>
-            {content()}
+            <div>
+                {content()}
+            </div>
         </li>
     )
 }
