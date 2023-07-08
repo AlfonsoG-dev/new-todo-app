@@ -2,9 +2,15 @@
 import SubTareaList from "./subTareaList";
 import AddSubTarea from "./AddSubTarea";
 export default function SubTareaContainer({ listaSubtareas }) {
+    function agregarSubTarea(nSubTarea) {
+        console.log("TODO: agregarSubTarea")
+    }
     return (
         <>
-            <AddSubTarea />
+            <AddSubTarea
+                datos={listaSubtareas}
+                addSubTarea={agregarSubTarea}
+            />
             <SubTareaList
                 subTareaList={listaSubtareas}
             />
