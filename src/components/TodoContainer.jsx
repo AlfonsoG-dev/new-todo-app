@@ -15,7 +15,10 @@ export default function TodoContainer({ listaDatos, title }) {
         ])
     }
     function eliminarTarea(tareaId) {
-        setTareas(tareas.filter((t) => t.id !== tareaId))
+        var opciones = confirm("Seguro desea eliminar la tarea?")
+        if (opciones == true) {
+            setTareas(tareas.filter((t) => t.id !== tareaId))
+        }
     }
     function modificarDescripcionTarea(nTarea) {
         setTareas(

@@ -14,7 +14,10 @@ export default function SubTareaContainer({ listaSubtareas, tareaCompleta }) {
         ])
     }
     function eliminarSubTarea(subTareaId) {
-        setSubTareas(subTareas.filter((t) => t.id !== subTareaId))
+        var opciones = confirm("Seguro desea eliminar la subtarea?")
+        if (opciones == true) {
+            setSubTareas(subTareas.filter((t) => t.id !== subTareaId))
+        }
     }
     function handleSubTareaChange(nSubTarea) {
         setSubTareas(

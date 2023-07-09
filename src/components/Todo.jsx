@@ -3,6 +3,15 @@ import SubTareaContainer from "./subtarea/SubTodoContainer"
 export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, subTareas }) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
+    function handleEditarTarea() {
+        let opciones = confirm("Seguro desea editar la tarea?")
+        if (opciones == true) {
+            setEditada(!editada)
+        } else {
+            setEditada(!editada)
+        }
+    }
+
     const content = () => {
         if (editada) {
             return (
@@ -15,7 +24,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                             descripcion: e.target.value
                         })}
                     />
-                    <button onClick={() => setEditada(false)}>Guardar</button>
+                    <button onClick={handleEditarTarea}>Guardar</button>
                 </>
             )
         } else if (!completar) {
