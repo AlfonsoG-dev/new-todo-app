@@ -1,6 +1,6 @@
 import SubTarea from "./SubTodo";
 
-export default function SubTareaList({ subTareaList, eliminarSubTarea, handleChange }) {
+export default function SubTareaList({ subTareaList, eliminarSubTarea, handleChange, tareaCompleta }) {
     const content = () => {
         if (subTareaList) {
             return (
@@ -9,6 +9,7 @@ export default function SubTareaList({ subTareaList, eliminarSubTarea, handleCha
                         subtarea={element}
                         eliminarSubTarea={eliminarSubTarea}
                         handleChange={handleChange}
+                        tareaCompleta={tareaCompleta}
                         key={element.id}
                     />
                 ))

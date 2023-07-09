@@ -1,9 +1,8 @@
 import { useState } from "react"
 
-export default function SubTarea({ subtarea, eliminarSubTarea, handleChange }) {
+export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tareaCompleta }) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
-
     const content = () => {
         if (editada) {
             return (
@@ -19,13 +18,14 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange }) {
                     <button onClick={() => setEditada(false)}>Guardar</button>
                 </>
             )
-        } else if (!completar) {
+        } else if (!completar && tareaCompleta == false) {
+            console.log(completar)
             return (
                 <>
                     <input
                         type="checkbox"
-                        value={completar}
-                        onClick={(e) => setCompletar(e.target.checked)}
+                        value={tareaCompleta}
+                        onClick={(e) => setCompletar(!completar)}
                     />
                     {subtarea.descripcion}
                     <div className="tarea-options">
@@ -35,6 +35,7 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange }) {
                 </>
             )
         } else {
+            console.log(completar)
             return (
                 <div>
                     <div style={{ textDecoration: 'line-through', color: 'black' }}>

@@ -57,6 +57,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
             <div>
                 <SubTareaContainer
                     listaSubtareas={subTareas}
+                    tareaCompleta={completar}
                 />
             </div>
         </li>
