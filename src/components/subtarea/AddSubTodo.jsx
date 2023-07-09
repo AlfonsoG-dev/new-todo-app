@@ -3,7 +3,8 @@ import { useState } from "react"
 export default function AddSubTarea({ datos, addSubTarea }) {
     const [descripcion, setDescripcion] = useState('')
     const [index, setIndex] = useState(datos.length)
-    function handleClickAdd() {
+    function handleOnSubmit(e) {
+        e.preventDefault()
         if (descripcion != "") {
             const newTarea = {
                 id: index,
@@ -18,16 +19,18 @@ export default function AddSubTarea({ datos, addSubTarea }) {
     }
     return (
         <div className="new-tarea">
-            <label htmlFor="descripcion">
-                <input
-                    type="text"
-                    name="descripcion"
-                    id="descripcion"
-                    value={descripcion}
-                    onChange={(e) => setDescripcion(e.target.value)}
-                />
-            </label>
-            <button onClick={handleClickAdd}>Add</button>
+            <form onSubmit={handleOnSubmit}>
+                <label htmlFor="descripcion">
+                    <input
+                        type="text"
+                        name="descripcion"
+                        id="descripcion"
+                        value={descripcion}
+                        onChange={(e) => setDescripcion(e.target.value)}
+                    />
+                </label>
+                <button>Add</button>
+            </form>
         </div>
     )
 }

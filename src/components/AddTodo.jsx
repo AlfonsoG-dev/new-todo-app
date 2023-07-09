@@ -5,7 +5,8 @@ import datos from "../store/db"
 export default function AddTodo({ addTarea }) {
     const [descripcion, setDescripcion] = useState('')
     const [index, setIndex] = useState(datos.length)
-    function handleClickAdd() {
+    function handleOnSubmit(e) {
+        e.preventDefault()
         if (descripcion != "") {
 
             const newTarea = {
@@ -21,16 +22,18 @@ export default function AddTodo({ addTarea }) {
     }
     return (
         <div className="new-tarea">
-            <label htmlFor="descripcion">
-                <input
-                    type="text"
-                    name="descripcion"
-                    id="descripcion"
-                    value={descripcion}
-                    onChange={(e) => setDescripcion(e.target.value)}
-                />
-            </label>
-            <button onClick={handleClickAdd}>Add</button>
+            <form onSubmit={handleOnSubmit}>
+                <label htmlFor="descripcion">
+                    <input
+                        type="text"
+                        name="descripcion"
+                        id="descripcion"
+                        value={descripcion}
+                        onChange={(e) => setDescripcion(e.target.value)}
+                    />
+                </label>
+                <button>Add</button>
+            </form>
         </div>
     )
 }
