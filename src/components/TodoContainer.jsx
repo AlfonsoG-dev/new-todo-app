@@ -2,7 +2,7 @@
 import { useState } from "react"
 import AddTodo from "./AddTodo"
 import TodoList from "./TodoList"
-export default function TodoContainer({ listaDatos }) {
+export default function TodoContainer({ listaDatos, title }) {
     const [tareas, setTareas] = useState(listaDatos)
     function agregarTarea(nTarea) {
         setTareas([
@@ -31,7 +31,7 @@ export default function TodoContainer({ listaDatos }) {
     }
     return (
         <div className="tarea-container">
-            <h1>Agregar Tarea</h1>
+            <h1>{title}</h1>
             <AddTodo
                 addTarea={agregarTarea}
             />

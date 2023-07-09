@@ -5,7 +5,9 @@ function App() {
 
   return (
     <div className='container'>
-      <TodoContainer listaDatos={datos} />
+      <TodoContainer listaDatos={datos} title={'Pendientes'} />
+      <TodoContainer listaDatos={[]} title={'En trabajo'} />
+
     </div>
   )
 }

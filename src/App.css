@@ -1,10 +1,13 @@
-/* .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
 
-} */
+.tarea-container {
+    padding-left: 10px;
+    background-color: #384554;
+}
 
 .tareas {
     background-color: #56686e;
