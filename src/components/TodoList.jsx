@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Todo from "./Todo"
 export default function TodoList({ tareas, handleEliminarTarea, handleChangeTarea }) {
 

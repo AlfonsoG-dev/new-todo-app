@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react"
 import datos from "../store/db"
 
+// eslint-disable-next-line 
 export default function AddTodo({ addTarea }) {
     const [descripcion, setDescripcion] = useState('')
     const [index, setIndex] = useState(datos.length)

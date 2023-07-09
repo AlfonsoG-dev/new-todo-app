@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import SubTareaList from "./SubTodoList";
 import AddSubTarea from "./AddSubTodo";
 import { useState } from "react";

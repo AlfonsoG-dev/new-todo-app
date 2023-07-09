@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import SubTarea from "./SubTodo";
 
 export default function SubTareaList({ subTareaList, eliminarSubTarea, handleChange }) {

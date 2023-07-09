@@ -1,6 +1,5 @@
 import { useState } from "react"
 import SubTareaContainer from "./subtarea/SubTodoContainer"
-/* eslint-disable react/prop-types */
 export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, subTareas }) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)

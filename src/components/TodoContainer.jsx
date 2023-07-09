@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react"
 import AddTodo from "./AddTodo"
 import TodoList from "./TodoList"
