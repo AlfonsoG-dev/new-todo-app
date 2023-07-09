@@ -6,7 +6,7 @@ function App() {
   return (
     <div className='container'>
       <TodoContainer listaDatos={datos} title={'Prueba'} />
-      <TodoContainer listaDatos={[]} title={'Estudios'} />
+      {/* <TodoContainer listaDatos={[]} title={'Estudios'} /> */}
 
     </div>
   )
