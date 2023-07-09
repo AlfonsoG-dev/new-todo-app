@@ -1,6 +1,5 @@
 import { useState } from "react"
 
-/* eslint-disable react/prop-types */
 export default function SubTarea({ subtarea, eliminarSubTarea, handleChange }) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
