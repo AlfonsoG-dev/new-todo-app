@@ -4,15 +4,17 @@ export default function AddSubTarea({ datos, addSubTarea }) {
     const [descripcion, setDescripcion] = useState('')
     const [index, setIndex] = useState(datos.length)
     function handleClickAdd() {
-        const newTarea = {
-            id: index,
-            descripcion: descripcion,
-            completada: false,
-            subtarea: []
+        if (descripcion != "") {
+            const newTarea = {
+                id: index,
+                descripcion: descripcion,
+                completada: false,
+                subtarea: []
+            }
+            addSubTarea(newTarea)
+            setDescripcion("")
+            setIndex(index + 1)
         }
-        addSubTarea(newTarea)
-        setDescripcion("")
-        setIndex(index + 1)
     }
     return (
         <div className="new-tarea">
