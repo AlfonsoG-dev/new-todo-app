@@ -19,7 +19,6 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tar
                 </>
             )
         } else if (!completar && tareaCompleta == false) {
-            console.log(completar)
             return (
                 <>
                     <input
@@ -35,7 +34,6 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tar
                 </>
             )
         } else {
-            console.log(completar)
             return (
                 <div>
                     <div style={{ textDecoration: 'line-through', color: 'black' }}>
