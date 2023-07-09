@@ -7,7 +7,7 @@ function App() {
     <div className='container'>
       <TodoContainer listaDatos={datos} title={'Prueba'} />
       {/* <TodoContainer listaDatos={[]} title={'Estudios'} /> */}
-
+      {/* TODO// panel de creación de todocontainer para crear espacios de trabajo */}
     </div>
   )
 }
