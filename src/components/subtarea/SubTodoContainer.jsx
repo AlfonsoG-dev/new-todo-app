@@ -1,48 +1,41 @@
 import SubTareaList from "./SubTodoList";
 import AddSubTarea from "./AddSubTodo";
-import { useEffect, useState } from "react";
+import { useReducer } from "react";
+import { subTodoReducer } from "../../reducer/subTodoReducer";
 export default function SubTareaContainer({ listaSubtareas, tareaCompleta }) {
-    const [subTareas, setSubTareas] = useState([])
 
-    useEffect(() => {
-        setSubTareas(listaSubtareas)
-    }, [listaSubtareas])
-    function agregarSubTarea(nSubTarea) {
-        setSubTareas([
-            ...subTareas,
-            {
-                id: nSubTarea.id,
-                descripcion: nSubTarea.descripcion,
-                completada: nSubTarea.completada
-            }
-        ])
+    const [subTareas, dispatch] = useReducer(subTodoReducer, listaSubtareas)
+    function handleAddSubTarea(nSubTarea) {
+        dispatch({
+            type: "agregar",
+            id: nSubTarea.id,
+            descripcion: nSubTarea.descripcion,
+            completada: nSubTarea.completada
+        })
     }
-    function eliminarSubTarea(subTareaId) {
-        var opciones = confirm("Seguro desea eliminar la subtarea?")
-        if (opciones == true) {
-            setSubTareas(subTareas.filter((t) => t.id !== subTareaId))
-        }
+
+    function handleDeleteSubTarea(nSubTareaId) {
+        dispatch({
+            type: "eliminar",
+            id: nSubTareaId
+        })
     }
-    function handleSubTareaChange(nSubTarea) {
-        setSubTareas(
-            subTareas.map((t) => {
-                if (t.id === nSubTarea.id) {
-                    return nSubTarea;
-                } else {
-                    return t;
-                }
-            })
-        )
+
+    function handleChangeSubTarea(nSubTarea) {
+        dispatch({
+            type: "editar",
+            subtarea: nSubTarea
+        })
     }
     return (
         <>
             <AddSubTarea
-                datos={listaSubtareas}
-                addSubTarea={agregarSubTarea}
+                datos={subTareas}
+                onAddSubTarea={handleAddSubTarea}
             />
             <SubTareaList
-                eliminarSubTarea={eliminarSubTarea}
-                handleChange={handleSubTareaChange}
+                onDeleteSubTarea={handleDeleteSubTarea}
+                onChangeSubTarea={handleChangeSubTarea}
                 tareaCompleta={tareaCompleta}
                 subTareaList={subTareas}
             />

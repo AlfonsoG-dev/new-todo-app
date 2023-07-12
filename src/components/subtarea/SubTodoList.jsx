@@ -1,14 +1,14 @@
 import SubTarea from "./SubTodo";
 
-export default function SubTareaList({ subTareaList, eliminarSubTarea, handleChange, tareaCompleta }) {
+export default function SubTareaList({ subTareaList, onDeleteSubTarea, onChangeSubTarea, tareaCompleta }) {
     const content = () => {
         if (subTareaList) {
             return (
                 subTareaList.map(element => (
                     <SubTarea
                         subtarea={element}
-                        onDeleteSubTarea={eliminarSubTarea}
-                        onChangeSubTarea={handleChange}
+                        onDeleteSubTarea={onDeleteSubTarea}
+                        onChangeSubTarea={onChangeSubTarea}
                         tareaCompleta={tareaCompleta}
                         key={element.id}
                     />

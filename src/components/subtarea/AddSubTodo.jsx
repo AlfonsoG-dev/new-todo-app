@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { AiFillPlusCircle } from "react-icons/ai";
 
-export default function AddSubTarea({ datos, addSubTarea }) {
+export default function AddSubTarea({ datos, onAddSubTarea }) {
     const [descripcion, setDescripcion] = useState('')
     const [index, setIndex] = useState(0)
 
@@ -17,7 +17,7 @@ export default function AddSubTarea({ datos, addSubTarea }) {
                 completada: false,
                 subtarea: []
             }
-            addSubTarea(newTarea)
+            onAddSubTarea(newTarea)
             setDescripcion("")
             setIndex(index + 1)
         }
