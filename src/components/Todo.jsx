@@ -6,18 +6,12 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
     function handleEditarTarea() {
-        let opciones = confirm("Seguro desea editar la tarea?")
-        if (opciones == true) {
-            setEditada(!editada)
-        } else {
-            setEditada(!editada)
-        }
+        setEditada(!editada)
     }
-
     const content = () => {
         if (editada) {
             return (
-                <form onSubmit={handleEditarTarea}>
+                <>
                     <input
                         type="text"
                         defaultValue={tarea.descripcion}
@@ -28,9 +22,9 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                     />
                     <div className="tarea-options">
 
-                        <button><AiFillPlusCircle /></button>
+                        <button onClick={handleEditarTarea}><AiFillPlusCircle /></button>
                     </div>
-                </form>
+                </>
             )
         } else if (!completar) {
             return (

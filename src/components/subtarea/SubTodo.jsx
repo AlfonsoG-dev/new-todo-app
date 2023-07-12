@@ -15,7 +15,7 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tar
     const content = () => {
         if (editada) {
             return (
-                <form onSubmit={handleEditarSubTarea}>
+                <>
                     <input
                         type="text"
                         defaultValue={subtarea.descripcion}
@@ -24,8 +24,8 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tar
                             decripcion: e.target.value
                         })}
                     />
-                    <button><AiFillPlusCircle /></button>
-                </form>
+                    <button onClick={handleEditarSubTarea}><AiFillPlusCircle /></button>
+                </>
             )
         } else if (!completar && tareaCompleta == false) {
             return (
