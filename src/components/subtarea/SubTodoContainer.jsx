@@ -1,8 +1,12 @@
 import SubTareaList from "./SubTodoList";
 import AddSubTarea from "./AddSubTodo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function SubTareaContainer({ listaSubtareas, tareaCompleta }) {
-    const [subTareas, setSubTareas] = useState(listaSubtareas)
+    const [subTareas, setSubTareas] = useState([])
+
+    useEffect(() => {
+        setSubTareas(listaSubtareas)
+    }, [listaSubtareas])
     function agregarSubTarea(nSubTarea) {
         setSubTareas([
             ...subTareas,

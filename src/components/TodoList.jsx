@@ -1,6 +1,5 @@
 import Todo from "./Todo"
 export default function TodoList({ tareas, handleEliminarTarea, handleChangeTarea }) {
-
     return (
         <ul className="tareas">
             {tareas.map(tarea => (
