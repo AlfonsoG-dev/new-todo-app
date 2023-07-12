@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import AddTodo from "./AddTodo"
 import TodoList from "./TodoList"
 export default function TodoContainer({ listaDatos, title }) {
-    const [tareas, setTareas] = useState(listaDatos)
+    const [tareas, setTareas] = useState([])
+
+    useEffect(() => {
+        setTareas(listaDatos)
+    }, [listaDatos])
     function agregarTarea(nTarea) {
         setTareas([
             ...tareas,
