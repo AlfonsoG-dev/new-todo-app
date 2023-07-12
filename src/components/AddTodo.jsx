@@ -1,6 +1,6 @@
 import { useState } from "react"
 import datos from "../store/db"
-
+import { AiFillPlusCircle } from "react-icons/ai";
 // eslint-disable-next-line 
 export default function AddTodo({ addTarea }) {
     const [descripcion, setDescripcion] = useState('')
@@ -32,7 +32,7 @@ export default function AddTodo({ addTarea }) {
                         onChange={(e) => setDescripcion(e.target.value)}
                     />
                 </label>
-                <button>Add</button>
+                <button><AiFillPlusCircle /></button>
             </form>
         </div>
     )

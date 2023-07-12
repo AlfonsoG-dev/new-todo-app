@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { AiFillPlusCircle } from "react-icons/ai";
+
 export default function AddSubTarea({ datos, addSubTarea }) {
     const [descripcion, setDescripcion] = useState('')
     const [index, setIndex] = useState(0)
@@ -32,7 +34,7 @@ export default function AddSubTarea({ datos, addSubTarea }) {
                         onChange={(e) => setDescripcion(e.target.value)}
                     />
                 </label>
-                <button>Add</button>
+                <button><AiFillPlusCircle /></button>
             </form>
         </div>
     )

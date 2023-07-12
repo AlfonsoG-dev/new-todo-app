@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import { AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
 export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tareaCompleta }) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
@@ -23,7 +23,7 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tar
                             decripcion: e.target.value
                         })}
                     />
-                    <button onClick={handleEditarSubTarea}>Guardar</button>
+                    <button onClick={handleEditarSubTarea}><AiFillPlusCircle /></button>
                 </>
             )
         } else if (!completar && tareaCompleta == false) {
@@ -37,7 +37,7 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tar
                     {subtarea.descripcion}
                     <div className="tarea-options">
                         <button onClick={() => setEditada(true)}>Editar</button>
-                        <button onClick={() => eliminarSubTarea(subtarea.id)}>Eliminar</button>
+                        <button onClick={() => eliminarSubTarea(subtarea.id)}><AiFillDelete /></button>
                     </div>
                 </>
             )
@@ -48,10 +48,10 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tar
                         {subtarea.descripcion}
                     </div>
                     <div className="tarea-options">
-                        <button onClick={() => eliminarSubTarea(subtarea.id)}>Eliminar</button>
+                        <button onClick={() => eliminarSubTarea(subtarea.id)}><AiFillDelete /></button>
                         <button onClick={() => setCompletar(false)}>Restaurar</button>
                     </div>
-                </div>
+                </div >
             )
         }
     }

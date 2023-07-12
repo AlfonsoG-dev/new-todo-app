@@ -1,5 +1,6 @@
 import { useState } from "react"
 import SubTareaContainer from "./subtarea/SubTodoContainer"
+import { AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
 export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, subTareas }) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
@@ -24,7 +25,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                             descripcion: e.target.value
                         })}
                     />
-                    <button onClick={handleEditarTarea}>Guardar</button>
+                    <button onClick={handleEditarTarea}><AiFillPlusCircle /></button>
                 </>
             )
         } else if (!completar) {
@@ -38,7 +39,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                     {tarea.descripcion}
                     <div className="tarea-options" >
                         <button onClick={() => setEditada(true)}>Editar</button>
-                        <button onClick={() => handleEliminarTarea(tarea.id)}>Eliminar</button>
+                        <button onClick={() => handleEliminarTarea(tarea.id)}><AiFillDelete /></button>
                     </div >
                 </ >
             )
@@ -49,7 +50,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                         {tarea.descripcion}
                     </div>
                     <div className="tarea-options" >
-                        <button onClick={() => handleEliminarTarea(tarea.id)}>Eliminar</button>
+                        <button onClick={() => handleEliminarTarea(tarea.id)}><AiFillDelete /></button>
                         <button onClick={() => setCompletar(false)}>Restaurar</button>
                     </div >
                 </div >
