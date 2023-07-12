@@ -15,7 +15,7 @@ export default function AddTodo({ onAddTarea }) {
                 completada: false,
                 subtarea: []
             }
-            addTarea(newTarea)
+            onAddTarea(newTarea);
             setDescripcion("")
             setIndex(index + 1)
         }

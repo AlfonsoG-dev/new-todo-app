@@ -2,7 +2,7 @@ const datos = [
     {
         id: 0,
         descripcion: "sacar la basura",
-        comletada: false,
+        completada: false,
         subtarea: [
             {
                 id: 0,
@@ -23,19 +23,19 @@ const datos = [
     {
         id: 1,
         descripcion: "comprar frutas",
-        comletada: false,
+        completada: false,
         subtarea: []
     },
     {
         id: 2,
         descripcion: "comprar pan",
-        comletada: false,
+        completada: false,
         subtarea: []
     },
     {
         id: 3,
         descripcion: "tender la cama",
-        comletada: false,
+        completada: false,
         subtarea: []
     },
 ]

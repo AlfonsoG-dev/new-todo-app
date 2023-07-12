@@ -9,9 +9,9 @@ export default function TodoContainer({ listaDatos, title }) {
         dispatch({
             type: 'agregar',
             id: nTarea.id,
-            description: nTarea.description,
-            completada: nTarea.completada,
-            subtarea: nTarea.subtarea
+            descripcion: nTarea.descripcion,
+            completada: false,
+            subtarea: []
         })
     }
 
