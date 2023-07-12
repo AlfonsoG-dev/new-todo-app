@@ -11,7 +11,7 @@ export function todoReducer(tareas, action) {
         ]
     } else if (action.type === "editar") {
         return tareas.map((tarea) => {
-            if (tarea.ida === action.tarea.id) {
+            if (tarea.id === action.tarea.id) {
                 return action.tarea
             } else {
                 return tarea
