@@ -27,3 +27,7 @@
     display: flex;
     gap: 10px;
 }
+
+.subtarea {
+    background-color: #56686e;
+}

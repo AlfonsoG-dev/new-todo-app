@@ -7,8 +7,8 @@ export default function SubTareaList({ subTareaList, eliminarSubTarea, handleCha
                 subTareaList.map(element => (
                     <SubTarea
                         subtarea={element}
-                        eliminarSubTarea={eliminarSubTarea}
-                        handleChange={handleChange}
+                        onDeleteSubTarea={eliminarSubTarea}
+                        onChangeSubTarea={handleChange}
                         tareaCompleta={tareaCompleta}
                         key={element.id}
                     />
