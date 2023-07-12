@@ -1,39 +1,32 @@
-import { useEffect, useState } from "react"
+import { useEffect, useReducer, useState } from "react"
 import AddTodo from "./AddTodo"
 import TodoList from "./TodoList"
+import { todoReducer } from "../reducer/todoReducer"
 export default function TodoContainer({ listaDatos, title }) {
-    const [tareas, setTareas] = useState([])
+    const [tareas, dispatch] = useReducer(todoReducer, listaDatos)
 
-    useEffect(() => {
-        setTareas(listaDatos)
-    }, [listaDatos])
-    function agregarTarea(nTarea) {
-        setTareas([
-            ...tareas,
-            {
-                id: nTarea.id,
-                descripcion: nTarea.descripcion,
-                completada: nTarea.completada,
-                subtarea: nTarea.subtarea
-            }
-        ])
+    function handleAgregarTarea(nTarea) {
+        dispatch({
+            type: 'agregar',
+            id: nTarea.id,
+            description: nTarea.description,
+            completada: nTarea.completada,
+            subtarea: nTarea.subtarea
+        })
     }
-    function eliminarTarea(tareaId) {
-        var opciones = confirm("Seguro desea eliminar la tarea?")
-        if (opciones == true) {
-            setTareas(tareas.filter((t) => t.id !== tareaId))
-        }
+
+    function handleDeleteTarea(nTareaId) {
+        dispatch({
+            type: 'eliminar',
+            id: nTareaId
+        })
     }
-    function modificarDescripcionTarea(nTarea) {
-        setTareas(
-            tareas.map((t) => {
-                if (t.id === nTarea.id) {
-                    return nTarea;
-                } else {
-                    return t;
-                }
-            })
-        )
+
+    function handleChangeTarea(nTarea) {
+        dispatch({
+            type: 'editar',
+            tarea: nTarea
+        })
     }
     return (
         <div className="tarea-container">
