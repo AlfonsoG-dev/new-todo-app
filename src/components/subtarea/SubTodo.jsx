@@ -16,28 +16,29 @@ export default function SubTarea({ subtarea, onDeleteSubTarea, onChangeSubTarea,
                     value={subtarea.descripcion}
                     onChange={(e) => onChangeSubTarea({
                         ...subtarea,
-                        decripcion: e.target.value
+                        descripcion: e.target.value
                     })}
                 />
                 <div className="tarea-options">
+
                     <button><AiFillPlusCircle /></button>
                 </div>
-            </form >
+            </form>
         )
-    } else if (!completar && tareaCompleta == false) {
+    } else if (!completar) {
         content = (
             <>
                 <input
                     type="checkbox"
-                    value={tareaCompleta}
+                    value={completar}
                     onClick={(e) => setCompletar(e.target.checked)}
                 />
                 {subtarea.descripcion}
-                <div className="tarea-options">
+                <div className="tarea-options" >
                     <button onClick={() => setEditada(true)}><AiFillEdit /></button>
                     <button onClick={() => onDeleteSubTarea(subtarea.id)}><AiFillDelete /></button>
-                </div>
-            </>
+                </div >
+            </ >
         )
     } else {
         content = (
@@ -45,10 +46,10 @@ export default function SubTarea({ subtarea, onDeleteSubTarea, onChangeSubTarea,
                 <div style={{ textDecoration: 'line-through', color: 'black' }}>
                     {subtarea.descripcion}
                 </div>
-                <div className="tarea-options">
+                <div className="tarea-options" >
                     <button onClick={() => onDeleteSubTarea(subtarea.id)}><AiFillDelete /></button>
                     <button onClick={() => setCompletar(false)}><FaTrashRestore /></button>
-                </div>
+                </div >
             </div >
         )
     }
