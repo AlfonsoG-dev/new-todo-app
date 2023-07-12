@@ -1,7 +1,7 @@
-import { useState } from "react"
-import { AiFillPlusCircle, AiFillDelete, AiFillEdit, AiFillCloseSquare } from "react-icons/ai";
-
-export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tareaCompleta }) {
+import {useState} from "react"
+import {AiFillPlusCircle, AiFillDelete, AiFillEdit, AiFillCloseSquare} from "react-icons/ai";
+import {FaTrashRestore} from 'react-icons/fa'
+export default function SubTarea({subtarea, eliminarSubTarea, handleChange, tareaCompleta}) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
     function handleEditarSubTarea() {
@@ -45,12 +45,12 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tar
         } else {
             return (
                 <div>
-                    <div style={{ textDecoration: 'line-through', color: 'black' }}>
+                    <div style={{textDecoration: 'line-through', color: 'black'}}>
                         {subtarea.descripcion}
                     </div>
                     <div className="tarea-options">
                         <button onClick={() => eliminarSubTarea(subtarea.id)}><AiFillDelete /></button>
-                        <button onClick={() => setCompletar(false)}>Restaurar</button>
+                        <button onClick={() => setCompletar(false)}><FaTrashRestore /></button>
                     </div>
                 </div >
             )

@@ -1,7 +1,8 @@
-import { useState } from "react"
+import {useState} from "react"
 import SubTareaContainer from "./subtarea/SubTodoContainer"
-import { AiFillPlusCircle, AiFillDelete, AiFillEdit, AiFillCloseSquare } from "react-icons/ai";
-export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, subTareas }) {
+import {AiFillPlusCircle, AiFillDelete, AiFillEdit, AiFillCloseSquare} from "react-icons/ai";
+import {FaTrashRestore} from "react-icons/fa"
+export default function Todo({tarea, handleEliminarTarea, handleChangeTarea, subTareas}) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
     function handleEditarTarea() {
@@ -49,12 +50,12 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
         } else {
             return (
                 <div>
-                    <div style={{ textDecoration: 'line-through', color: 'red' }}>
+                    <div style={{textDecoration: 'line-through', color: 'red'}}>
                         {tarea.descripcion}
                     </div>
                     <div className="tarea-options" >
                         <button onClick={() => handleEliminarTarea(tarea.id)}><AiFillDelete /></button>
-                        <button onClick={() => setCompletar(false)}><AiFillCloseSquare /></button>
+                        <button onClick={() => setCompletar(false)}><FaTrashRestore /></button>
                     </div >
                 </div >
             )
