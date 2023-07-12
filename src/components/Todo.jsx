@@ -11,22 +11,20 @@ export default function Todo({ tarea, onDeleteTarea, onChangeTarea, subTareas })
     let content;
     if (editada) {
         content = (
-            <>
-                <label htmlFor="">
+            <form onSubmit={handleEditarTarea}>
 
-                    <input
-                        value={tarea.descripcion}
-                        onChange={(e) => onChangeTarea({
-                            ...tarea,
-                            descripcion: e.target.value
-                        })}
-                    />
-                </label>
+                <input
+                    value={tarea.descripcion}
+                    onChange={(e) => onChangeTarea({
+                        ...tarea,
+                        descripcion: e.target.value
+                    })}
+                />
                 <div className="tarea-options">
 
-                    <button onClick={handleEditarTarea}><AiFillPlusCircle /></button>
+                    <button><AiFillPlusCircle /></button>
                 </div>
-            </>
+            </form>
         )
     } else if (!completar) {
         content = (
