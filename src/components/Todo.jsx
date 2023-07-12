@@ -1,6 +1,6 @@
 import { useState } from "react"
 import SubTareaContainer from "./subtarea/SubTodoContainer"
-import { AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
+import { AiFillPlusCircle, AiFillDelete, AiFillEdit, AiFillCloseSquare } from "react-icons/ai";
 export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, subTareas }) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
@@ -25,7 +25,10 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                             descripcion: e.target.value
                         })}
                     />
-                    <button onClick={handleEditarTarea}><AiFillPlusCircle /></button>
+                    <div className="tarea-options">
+
+                        <button onClick={handleEditarTarea}><AiFillPlusCircle /></button>
+                    </div>
                 </>
             )
         } else if (!completar) {
@@ -38,7 +41,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                     />
                     {tarea.descripcion}
                     <div className="tarea-options" >
-                        <button onClick={() => setEditada(true)}>Editar</button>
+                        <button onClick={() => setEditada(true)}><AiFillEdit /></button>
                         <button onClick={() => handleEliminarTarea(tarea.id)}><AiFillDelete /></button>
                     </div >
                 </ >
@@ -51,7 +54,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                     </div>
                     <div className="tarea-options" >
                         <button onClick={() => handleEliminarTarea(tarea.id)}><AiFillDelete /></button>
-                        <button onClick={() => setCompletar(false)}>Restaurar</button>
+                        <button onClick={() => setCompletar(false)}><AiFillCloseSquare /></button>
                     </div >
                 </div >
             )

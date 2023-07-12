@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
+import { AiFillPlusCircle, AiFillDelete, AiFillEdit, AiFillCloseSquare } from "react-icons/ai";
+
 export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tareaCompleta }) {
     const [editada, setEditada] = useState(false)
     const [completar, setCompletar] = useState(false)
@@ -36,7 +37,7 @@ export default function SubTarea({ subtarea, eliminarSubTarea, handleChange, tar
                     />
                     {subtarea.descripcion}
                     <div className="tarea-options">
-                        <button onClick={() => setEditada(true)}>Editar</button>
+                        <button onClick={() => setEditada(true)}><AiFillEdit /></button>
                         <button onClick={() => eliminarSubTarea(subtarea.id)}><AiFillDelete /></button>
                     </div>
                 </>
