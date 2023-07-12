@@ -12,16 +12,13 @@ export default function SubTarea({ subtarea, onDeleteSubTarea, onChangeSubTarea,
         content = (
             <form onSubmit={handleEditarSubTarea}>
 
-                <label htmlFor="">
-
-                    <input
-                        value={subtarea.descripcion}
-                        onChange={(e) => onChangeSubTarea({
-                            ...subtarea,
-                            decripcion: e.target.value
-                        })}
-                    />
-                </label>
+                <input
+                    value={subtarea.descripcion}
+                    onChange={(e) => onChangeSubTarea({
+                        ...subtarea,
+                        decripcion: e.target.value
+                    })}
+                />
                 <div className="tarea-options">
                     <button><AiFillPlusCircle /></button>
                 </div>
