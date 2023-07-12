@@ -10,7 +10,7 @@ export default function TodoContainer({ listaDatos, title }) {
             type: 'agregar',
             id: nTarea.id,
             descripcion: nTarea.descripcion,
-            completada: false,
+            completada: nTarea.completada,
             subtarea: []
         })
     }

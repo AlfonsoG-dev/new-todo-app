@@ -7,7 +7,7 @@ export default function AddSubTarea({ datos, onAddSubTarea }) {
 
     useEffect(() => {
         setIndex(datos.length)
-    }, [datos.length])
+    }, [datos, setIndex])
     function handleOnSubmit(e) {
         e.preventDefault()
         if (descripcion != "") {
@@ -15,7 +15,6 @@ export default function AddSubTarea({ datos, onAddSubTarea }) {
                 id: index,
                 descripcion: descripcion,
                 completada: false,
-                subtarea: []
             }
             onAddSubTarea(newTarea)
             setDescripcion("")
