@@ -17,7 +17,7 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
     const content = () => {
         if (editada) {
             return (
-                <>
+                <form onSubmit={handleEditarTarea}>
                     <input
                         type="text"
                         defaultValue={tarea.descripcion}
@@ -28,9 +28,9 @@ export default function Todo({ tarea, handleEliminarTarea, handleChangeTarea, su
                     />
                     <div className="tarea-options">
 
-                        <button onClick={handleEditarTarea}><AiFillPlusCircle /></button>
+                        <button><AiFillPlusCircle /></button>
                     </div>
-                </>
+                </form>
             )
         } else if (!completar) {
             return (
