@@ -2,7 +2,7 @@ import { useState } from "react"
 import datos from "../store/db"
 import { AiFillPlusCircle } from "react-icons/ai";
 // eslint-disable-next-line 
-export default function AddTodo({ addTarea }) {
+export default function AddTodo({ onAddTarea }) {
     const [descripcion, setDescripcion] = useState('')
     const [index, setIndex] = useState(datos.length)
     function handleOnSubmit(e) {

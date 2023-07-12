@@ -5,7 +5,7 @@ import { todoReducer } from "../reducer/todoReducer"
 export default function TodoContainer({ listaDatos, title }) {
     const [tareas, dispatch] = useReducer(todoReducer, listaDatos)
 
-    function handleAgregarTarea(nTarea) {
+    function handleAddTarea(nTarea) {
         dispatch({
             type: 'agregar',
             id: nTarea.id,
@@ -32,14 +32,14 @@ export default function TodoContainer({ listaDatos, title }) {
         <div className="tarea-container">
             <h1>{title}</h1>
             <AddTodo
-                addTarea={agregarTarea}
+                onAddTarea={handleAddTarea}
             />
             <>
                 <h1>Lista de tareas</h1>
                 <TodoList
                     tareas={tareas}
-                    handleEliminarTarea={eliminarTarea}
-                    handleChangeTarea={modificarDescripcionTarea}
+                    onDeleteTarea={handleDeleteTarea}
+                    onChangeTarea={handleChangeTarea}
                     listaSubTareas={tareas}
                 />
             </>
