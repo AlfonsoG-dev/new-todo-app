@@ -37,7 +37,7 @@ export default function SubTareaContainer({ listaSubtareas, tareaCompleta }) {
     return (
         <>
             <AddSubTarea
-                datos={subTareas}
+                datos={listaSubtareas}
                 addSubTarea={agregarSubTarea}
             />
             <SubTareaList

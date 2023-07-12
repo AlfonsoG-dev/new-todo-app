@@ -1,7 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 export default function AddSubTarea({ datos, addSubTarea }) {
     const [descripcion, setDescripcion] = useState('')
-    const [index, setIndex] = useState(datos.length)
+    const [index, setIndex] = useState(0)
+
+    useEffect(() => {
+        setIndex(datos.length)
+    }, [datos.length])
     function handleOnSubmit(e) {
         e.preventDefault()
         if (descripcion != "") {
