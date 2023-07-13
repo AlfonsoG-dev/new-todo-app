@@ -13,10 +13,7 @@ export default function Todo({ tarea, subTareas }) {
         setEditada(!editada)
     }
     const handleDelete = useCallback(() => {
-        dispatch({
-            type: "eliminar",
-            id: tarea.id
-        })
+
     }, [dispatch, tarea])
     let content;
 
@@ -42,7 +39,10 @@ export default function Todo({ tarea, subTareas }) {
                 {tarea.descripcion}
                 <div className="tarea-options" >
                     <button onClick={() => setEditada(true)}><AiFillEdit /></button>
-                    <button onClick={handleDelete}><AiFillDelete /></button>
+                    <button onClick={() => dispatch({
+                        type: "eliminar",
+                        id: tarea.id
+                    })}><AiFillDelete /></button>
                 </div >
             </>
         )

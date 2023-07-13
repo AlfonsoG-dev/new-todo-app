@@ -5,15 +5,12 @@ import { useTodosDispatch } from "../services/TodoContext";
 // eslint-disable-next-line 
 export default function AddTodo() {
     const [descripcion, setDescripcion] = useState('')
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(datos.length + 1)
     const dispatch = useTodosDispatch()
-    useEffect(() => {
-        setIndex(datos.length)
-    }, [datos, setIndex])
+
     function handleOnSubmit(e) {
         e.preventDefault()
         if (descripcion != "") {
-
             dispatch({
                 type: "agregar",
                 id: index,
@@ -25,6 +22,7 @@ export default function AddTodo() {
             setIndex(index + 1)
         }
     }
+
     return (
         <div className="new-tarea">
             <form onSubmit={handleOnSubmit}>

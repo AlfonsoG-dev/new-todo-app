@@ -1,6 +1,7 @@
 import { enableMapSet } from "immer";
 enableMapSet()
 export function todoReducer(draft, action) {
+    const index = draft.indexOf(action.id)
     switch (action.type) {
         case "agregar":
             draft.push({
@@ -11,16 +12,15 @@ export function todoReducer(draft, action) {
             })
             break;
         case "editar":
-            draft.forEach(tarea => {
+            draft.map(tarea => {
                 if (tarea.id === action.tarea.id) {
-                    draft[tarea.id] = action.tarea
+                    draft[draft.indexOf(tarea)] = action.tarea
                 } else {
-                    draft[tarea.id] = tarea
+                    draft[draft.indexOf(tarea)] = tarea
                 }
-            });
+            })
             break;
         case "eliminar":
-            const index = draft.indexOf(action.id)
             draft.splice(index, action.id)
             break;
         default:
