@@ -4,12 +4,17 @@ import { AiFillPlusCircle, AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { FaTrashRestore } from "react-icons/fa"
 import { useTodosDispatch } from "../services/TodoContext";
 export default function Todo({ tarea, subTareas }) {
+
     const [editada, setEditada] = useState(false)
+
     const dispatch = useTodosDispatch()
+
     function handleEditarTarea() {
         setEditada(!editada)
     }
+
     let content;
+
     if (editada) {
         content = (
             <form onSubmit={handleEditarTarea}>
@@ -40,6 +45,7 @@ export default function Todo({ tarea, subTareas }) {
             </>
         )
     }
+
     return (
         <li>
             {!tarea.completada ? (
