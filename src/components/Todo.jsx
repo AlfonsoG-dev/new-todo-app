@@ -17,7 +17,9 @@ export default function Todo({ tarea }) {
     if (editada) {
         content = (
             <form onSubmit={handleEditarTarea}>
-                <input
+                <textarea
+                    rows={10}
+                    cols={50}
                     value={tarea.descripcion}
                     onChange={(e) => dispatch({
                         type: "editar",
