@@ -37,3 +37,9 @@
 .subtarea {
     background-color: #56686e;
 }
+
+.subtarea-completada {
+    background-color: #56686e;
+    text-decoration: line-through;
+    color: black;
+}
