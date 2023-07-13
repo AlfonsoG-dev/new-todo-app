@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import SubTareaContainer from "./subtarea/SubTodoContainer"
 import { AiFillPlusCircle, AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { FaTrashRestore } from "react-icons/fa"
@@ -12,7 +12,12 @@ export default function Todo({ tarea, subTareas }) {
     function handleEditarTarea() {
         setEditada(!editada)
     }
-
+    const handleDelete = useCallback(() => {
+        dispatch({
+            type: "eliminar",
+            id: tarea.id
+        })
+    }, [dispatch, tarea])
     let content;
 
     if (editada) {
@@ -37,10 +42,7 @@ export default function Todo({ tarea, subTareas }) {
                 {tarea.descripcion}
                 <div className="tarea-options" >
                     <button onClick={() => setEditada(true)}><AiFillEdit /></button>
-                    <button onClick={() => dispatch({
-                        type: "eliminar",
-                        id: tarea.id
-                    })}><AiFillDelete /></button>
+                    <button onClick={handleDelete}><AiFillDelete /></button>
                 </div >
             </>
         )
