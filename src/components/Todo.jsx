@@ -47,6 +47,7 @@ export default function Todo({ tarea, subTareas }) {
     }
 
     return (
+
         <li>
             {!tarea.completada ? (
                 <>
@@ -83,12 +84,14 @@ export default function Todo({ tarea, subTareas }) {
                     </div>
                 </>
             )}
+
             <div>
                 <SubTareaContainer
                     listaSubtareas={subTareas}
                     tareaCompleta={tarea.completada}
                 />
             </div>
+
         </li >
     )
 
