@@ -1,14 +1,13 @@
 import { createContext, useContext, useReducer } from "react";
 import { subTodoReducer } from "../reducer/subTodoReducer"
 import datos from "../store/db"
-
+import { useImmerReducer } from "use-immer";
 export const SubTodoContext = createContext(null)
 
 export const SubTodoDispatchContext = createContext(null)
 
-const listaSubtareas = datos.filter(tarea => tarea.subtarea)
 export function SubTodoProvider({ children }) {
-    const [subtareas, dispatch] = useReducer(subTodoReducer, listaSubtareas)
+    const [subtareas, dispatch] = useImmerReducer(subTodoReducer, datos)
 
     return (
         <SubTodoContext.Provider value={subtareas}>
