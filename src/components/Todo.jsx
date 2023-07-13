@@ -2,9 +2,10 @@ import { useState } from "react"
 import SubTareaContainer from "./subtarea/SubTodoContainer"
 import { AiFillPlusCircle, AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { FaTrashRestore } from "react-icons/fa"
-export default function Todo({ tarea, onDeleteTarea, onChangeTarea, subTareas }) {
+import { useTodosDispatch } from "../services/TodoContext";
+export default function Todo({ tarea, subTareas }) {
     const [editada, setEditada] = useState(false)
-    const [completar, setCompletar] = useState(false)
+    const dispatch = useTodosDispatch()
     function handleEditarTarea() {
         setEditada(!editada)
     }
@@ -12,12 +13,14 @@ export default function Todo({ tarea, onDeleteTarea, onChangeTarea, subTareas })
     if (editada) {
         content = (
             <form onSubmit={handleEditarTarea}>
-
                 <input
                     value={tarea.descripcion}
-                    onChange={(e) => onChangeTarea({
-                        ...tarea,
-                        descripcion: e.target.value
+                    onChange={(e) => dispatch({
+                        type: "editar",
+                        tarea: {
+                            ...tarea,
+                            descripcion: e.target.value
+                        }
                     })}
                 />
                 <div className="tarea-options">
@@ -26,47 +29,64 @@ export default function Todo({ tarea, onDeleteTarea, onChangeTarea, subTareas })
                 </div>
             </form>
         )
-    } else if (!completar) {
+    } else {
         content = (
             <>
-                <input
-                    type="checkbox"
-                    value={completar}
-                    onClick={(e) => setCompletar(e.target.checked)}
-                />
                 {tarea.descripcion}
                 <div className="tarea-options" >
                     <button onClick={() => setEditada(true)}><AiFillEdit /></button>
-                    <button onClick={() => onDeleteTarea(tarea.id)}><AiFillDelete /></button>
+                    <button onClick={() => dispatch({
+                        type: "eliminar",
+                        id: tarea.id
+                    })}><AiFillDelete /></button>
                 </div >
-            </ >
-        )
-    } else {
-        content = (
-            <div>
-                <div style={{ textDecoration: 'line-through', color: 'red' }}>
-                    {tarea.descripcion}
-                </div>
-                <div className="tarea-options" >
-                    <button onClick={() => onDeleteTarea(tarea.id)}><AiFillDelete /></button>
-                    <button onClick={() => setCompletar(false)}><FaTrashRestore /></button>
-                </div >
-            </div >
+            </>
         )
     }
-
     return (
         <li>
-            <div className="tarea">
-                {content}
-            </div>
+            {!tarea.completada ? (
+                <>
+                    <div className="tarea">
+                        <input
+                            type="checkbox"
+                            value={tarea.completada}
+                            onChange={(e) => dispatch({
+                                type: "editar",
+                                tarea: {
+                                    ...tarea,
+                                    completada: e.target.checked
+                                }
+                            })}
+                        />
+                        {content}
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className="tarea-completada">
+                        <input
+                            type="checkbox"
+                            value={tarea.completada}
+                            onChange={(e) => dispatch({
+                                type: "editar",
+                                tarea: {
+                                    ...tarea,
+                                    completada: e.target.checked
+                                }
+                            })}
+                        />
+                        {content}
+                    </div>
+                </>
+            )}
             <div>
                 <SubTareaContainer
                     listaSubtareas={subTareas}
-                    tareaCompleta={completar}
+                    tareaCompleta={tarea.completada}
                 />
             </div>
-        </li>
+        </li >
     )
 
 }
