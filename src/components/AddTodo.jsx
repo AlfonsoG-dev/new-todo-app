@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import datos from "../store/db"
 import { AiFillPlusCircle } from "react-icons/ai";
+import { useTodosDispatch } from "../services/TodoContext";
 // eslint-disable-next-line 
-export default function AddTodo({ onAddTarea }) {
+export default function AddTodo() {
     const [descripcion, setDescripcion] = useState('')
     const [index, setIndex] = useState(0)
+    const dispatch = useTodosDispatch()
     useEffect(() => {
         setIndex(datos.length)
     }, [datos, setIndex])
@@ -12,13 +14,13 @@ export default function AddTodo({ onAddTarea }) {
         e.preventDefault()
         if (descripcion != "") {
 
-            const newTarea = {
+            dispatch({
+                type: "agregar",
                 id: index,
                 descripcion: descripcion,
                 completada: false,
                 subtarea: []
-            }
-            onAddTarea(newTarea);
+            })
             setDescripcion("")
             setIndex(index + 1)
         }
