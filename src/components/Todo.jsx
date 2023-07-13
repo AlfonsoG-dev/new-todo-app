@@ -16,20 +16,28 @@ export default function Todo({ tarea }) {
 
     if (editada) {
         content = (
-            <form onSubmit={handleEditarTarea}>
-                <textarea
-                    rows={10}
-                    cols={50}
-                    value={tarea.descripcion}
-                    onChange={(e) => dispatch({
-                        type: "editar",
-                        tarea: {
-                            ...tarea,
-                            descripcion: e.target.value
-                        }
-                    })}
-                />
-                <button><AiFillPlusCircle /></button>
+            <form onSubmit={handleEditarTarea} id="form-edicion">
+                <label htmlFor="">
+
+                    <textarea
+                        form="form-edicion"
+                        wrap="hard"
+                        rows={4}
+                        cols={50}
+                        value={tarea.descripcion}
+                        onChange={(e) => dispatch({
+                            type: "editar",
+                            tarea: {
+                                ...tarea,
+                                descripcion: e.target.value
+                            }
+                        })}
+                    />
+                </label>
+                <div className="tarea-options">
+
+                    <button><AiFillPlusCircle /></button>
+                </div>
             </form>
         )
     } else {
