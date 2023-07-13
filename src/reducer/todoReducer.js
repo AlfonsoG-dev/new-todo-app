@@ -1,30 +1,28 @@
 import { enableMapSet } from "immer";
 enableMapSet()
-export function todoReducer(draft, action) {
-    const index = draft.indexOf(action.id)
-    switch (action.type) {
-        case "agregar":
-            draft.push({
+export function todoReducer(tareas, action) {
+    if (action.type === "agregar") {
+        return [
+            ...tareas,
+            {
                 id: action.id,
                 descripcion: action.descripcion,
                 completada: action.completada,
                 subtarea: action.subtarea
-            })
-            break;
-        case "editar":
-            draft.map(tarea => {
-                if (tarea.id === action.tarea.id) {
-                    draft[draft.indexOf(tarea)] = action.tarea
-                } else {
-                    draft[draft.indexOf(tarea)] = tarea
-                }
-            })
-            break;
-        case "eliminar":
-            draft.splice(index, action.id)
-            break;
-        default:
-            break;
+            }
+        ]
+    } else if (action.type === "editar") {
+        return tareas.map((tarea) => {
+            if (tarea.id === action.tarea.id) {
+                return action.tarea
+            } else {
+                return tarea
+            }
+        })
+    } else if (action.type === "eliminar") {
+        return tareas.filter((tarea) => tarea.id !== action.id)
+    } else {
+        throw Error(`la action de tipo ${action.type} no es valia`)
     }
 
 }

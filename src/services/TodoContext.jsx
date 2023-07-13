@@ -8,7 +8,7 @@ const TodoContext = createContext(null)
 const TodoDispatchContext = createContext(null)
 
 export function TodoProvider({ children }) {
-    const [tareas, dispatch] = useImmerReducer(todoReducer, datos)
+    const [tareas, dispatch] = useReducer(todoReducer, datos)
 
     return (
         <TodoContext.Provider value={tareas}>

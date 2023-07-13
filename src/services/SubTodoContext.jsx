@@ -7,7 +7,7 @@ export const SubTodoContext = createContext(null)
 export const SubTodoDispatchContext = createContext(null)
 
 export function SubTodoProvider({ children }) {
-    const [subtareas, dispatch] = useImmerReducer(subTodoReducer, datos)
+    const [subtareas, dispatch] = useReducer(subTodoReducer, datos)
 
     return (
         <SubTodoContext.Provider value={subtareas}>

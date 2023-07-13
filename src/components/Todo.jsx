@@ -12,9 +12,7 @@ export default function Todo({ tarea, subTareas }) {
     function handleEditarTarea() {
         setEditada(!editada)
     }
-    const handleDelete = useCallback(() => {
 
-    }, [dispatch, tarea])
     let content;
 
     if (editada) {
