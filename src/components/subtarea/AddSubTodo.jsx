@@ -6,7 +6,7 @@ export default function AddSubTarea({ datos, onAddSubTarea }) {
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
-        setIndex(datos.length)
+        setIndex(datos.length + 1)
     }, [datos, setIndex])
     function handleOnSubmit(e) {
         e.preventDefault()
