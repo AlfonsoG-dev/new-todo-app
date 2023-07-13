@@ -25,7 +25,7 @@ export default function SubTarea({ subtarea, onDeleteSubTarea, onChangeSubTarea,
                 </div>
             </form>
         )
-    } else if (!completar) {
+    } else if (!completar && tareaCompleta == false) {
         content = (
             <>
                 <input
