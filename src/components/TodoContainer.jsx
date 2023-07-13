@@ -1,7 +1,33 @@
+import { useReducer } from "react"
 import AddTodo from "./AddTodo"
 import TodoList from "./TodoList"
-export default function TodoContainer({ title }) {
+import { todoReducer } from "../reducer/todoReducer"
+export default function TodoContainer({ data, title }) {
+    const [tareas, dispatch] = useReducer(todoReducer, data)
 
+    function handleAddTarea(nTarea) {
+        dispatch({
+            type: 'agregar',
+            id: nTarea.id,
+            descripcion: nTarea.descripcion,
+            completada: nTarea.completada,
+            subtarea: []
+        })
+    }
+
+    function handleDeleteTarea(nTareaId) {
+        dispatch({
+            type: 'eliminar',
+            id: nTareaId
+        })
+    }
+
+    function handleChangeTarea(nTarea) {
+        dispatch({
+            type: 'editar',
+            tarea: nTarea
+        })
+    }
     return (
         <div className="tarea-container">
             <h1>{title}</h1>
