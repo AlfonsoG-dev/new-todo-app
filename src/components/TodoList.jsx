@@ -7,7 +7,6 @@ export default function TodoList() {
             {tareas.map(tarea => (
                 <Todo
                     tarea={tarea}
-                    subTareas={tarea.subtarea}
                     key={tarea.id}
                 />
             ))}
