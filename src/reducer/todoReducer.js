@@ -8,6 +8,15 @@ export function todoReducer(draft, action) {
                 subtarea: action.subtarea
             })
             break;
+        case "editar":
+            draft.forEach(tarea => {
+                if (tarea.id === action.tarea.id) {
+                    draft[tarea.id] = action.tarea
+                } else {
+                    draft[tarea.id] = tarea
+                }
+            });
+            break;
         default:
             break;
     }
