@@ -23,10 +23,7 @@ export default function Todo({ tarea, subTareas }) {
                         }
                     })}
                 />
-                <div className="tarea-options">
-
-                    <button><AiFillPlusCircle /></button>
-                </div>
+                <button><AiFillPlusCircle /></button>
             </form>
         )
     } else {
