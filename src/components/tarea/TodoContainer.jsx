@@ -11,7 +11,6 @@ export default function TodoContainer({ title }) {
                 <AddTodo
                 />
                 <>
-                    <h1>Lista de tareas</h1>
                     <TodoList
                     />
                 </>
