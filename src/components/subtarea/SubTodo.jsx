@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { AiFillPlusCircle, AiFillDelete, AiFillEdit } from "react-icons/ai";
-export default function SubTarea({ subtarea, onDeleteSubTarea, onChangeSubTarea, tareaCompleta }) {
+import { useSubTodoDispatch } from "../../services/SubTodoContext";
+export default function SubTarea({ subtarea, tareaCompleta }) {
     const [editada, setEditada] = useState(false)
+    const dispatch = useSubTodoDispatch()
     function handleEditarSubTarea() {
         setEditada(!editada)
     }
@@ -14,9 +16,12 @@ export default function SubTarea({ subtarea, onDeleteSubTarea, onChangeSubTarea,
                     rows={4}
                     cols={50}
                     value={subtarea.descripcion}
-                    onChange={(e) => onChangeSubTarea({
-                        ...subtarea,
-                        descripcion: e.target.value
+                    onChange={(e) => dispatch({
+                        type: "editar",
+                        subtarea: {
+                            ...subtarea,
+                            descripcion: e.target.value
+                        }
                     })}
                 />
                 <div className="tarea-options">
@@ -31,7 +36,10 @@ export default function SubTarea({ subtarea, onDeleteSubTarea, onChangeSubTarea,
                 {subtarea.descripcion}
                 <div className="tarea-options">
                     <button onClick={() => setEditada(true)}><AiFillEdit /></button>
-                    <button onClick={() => onDeleteSubTarea(subtarea.id)}><AiFillDelete /></button>
+                    <button onClick={() => dispatch({
+                        type: "eliminar",
+                        id: subtarea.id
+                    })}><AiFillDelete /></button>
                 </div>
             </>
         )
@@ -44,9 +52,12 @@ export default function SubTarea({ subtarea, onDeleteSubTarea, onChangeSubTarea,
                         <input
                             type="checkbox"
                             value={subtarea.completada}
-                            onChange={(e) => onChangeSubTarea({
-                                ...subtarea,
-                                completada: e.target.checked
+                            onChange={(e) => dispatch({
+                                type: "editar",
+                                subtarea: {
+                                    ...subtarea,
+                                    completada: e.target.checked
+                                }
                             })}
                         />
                         {content}
@@ -57,9 +68,12 @@ export default function SubTarea({ subtarea, onDeleteSubTarea, onChangeSubTarea,
                     <input
                         type="checkbox"
                         value={subtarea.completada}
-                        onChange={(e) => onChangeSubTarea({
-                            ...subtarea,
-                            completada: e.target.checked
+                        onChange={(e) => dispatch({
+                            type: "editar",
+                            subtarea: {
+                                ...subtarea,
+                                completada: e.target.checked
+                            }
                         })}
                     />
                     {content}

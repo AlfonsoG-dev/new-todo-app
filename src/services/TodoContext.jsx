@@ -1,13 +1,13 @@
 import { createContext, useContext, useReducer } from "react";
 import { todoReducer } from "../reducer/todoReducer";
-import datos from "../store/db_todo";
+import datos_todo from "../store/db_todo";
 
 const TodoContext = createContext(null)
 
 const TodoDispatchContext = createContext(null)
 
 export function TodoProvider({ children }) {
-    const [tareas, dispatch] = useReducer(todoReducer, datos)
+    const [tareas, dispatch] = useReducer(todoReducer, datos_todo)
 
     return (
         <TodoContext.Provider value={tareas}>
