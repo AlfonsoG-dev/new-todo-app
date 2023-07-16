@@ -1,13 +1,16 @@
+import { BoardProvider } from "../../services/BoardContext";
 import TodoContainer from "../tarea/TodoContainer";
+import BoardAdd from "./BoardAdd";
+import BoardList from "./BoardList";
 
 export default function TodoBoard({ n_title = '' }) {
     return (
-
-        <>
+        <BoardProvider>
             <div>
-                <TodoContainer title={n_title} />
+                <BoardAdd />
+                <BoardList />
             </div>
-        </>
+        </BoardProvider>
 
     )
 }
