@@ -1,7 +1,7 @@
 import { useState } from "react"
-import SubTareaContainer from "./subtarea/SubTodoContainer"
+import SubTareaContainer from "../subtarea/SubTodoContainer"
 import { AiFillPlusCircle, AiFillDelete, AiFillEdit } from "react-icons/ai";
-import { useTodosDispatch } from "../services/TodoContext";
+import { useTodosDispatch } from "../../services/TodoContext";
 export default function Todo({ tarea }) {
 
     const [editada, setEditada] = useState(false)
