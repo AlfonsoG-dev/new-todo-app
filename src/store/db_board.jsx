@@ -5,3 +5,4 @@ const datos_board = [
         title: "prueba 1",
     }
 ]
+export default datos_board;

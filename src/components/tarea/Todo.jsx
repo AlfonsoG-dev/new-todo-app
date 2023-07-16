@@ -96,7 +96,6 @@ export default function Todo({ tarea }) {
 
             <div>
                 <SubTareaContainer
-                    listaSubtareas={tarea.subtarea}
                     tareaCompleta={tarea.completada}
                 />
             </div>

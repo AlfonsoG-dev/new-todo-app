@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react"
 import { AiFillPlusCircle } from "react-icons/ai";
+import { useSubTodoDispatch } from "../../services/SubTodoContext";
+import datos_subtodo from "../../store/db_subtodo";
 
-export default function AddSubTarea({ datos, onAddSubTarea }) {
+export default function AddSubTarea() {
     const [descripcion, setDescripcion] = useState('')
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(datos_subtodo.length)
+    const dispatch = useSubTodoDispatch()
 
-    useEffect(() => {
-        setIndex(datos.length + 1)
-    }, [datos, setIndex])
     function handleOnSubmit(e) {
         e.preventDefault()
         if (descripcion != "") {
-            const newTarea = {
+            dispatch({
+                type: "agregar",
                 id: index,
                 descripcion: descripcion,
                 completada: false,
-            }
-            onAddSubTarea(newTarea)
+            })
             setDescripcion("")
             setIndex(index + 1)
         }
