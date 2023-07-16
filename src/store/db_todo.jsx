@@ -1,7 +1,7 @@
 import datos_subtodo from "./db_subtodo";
 const datos_todo = [
     {
-        id: 1,
+        id: 0,
         descripcion: "Todo app creada con reducer, context",
         completada: false,
         subtarea: datos_subtodo

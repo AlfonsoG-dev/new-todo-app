@@ -3,10 +3,10 @@ import TodoContainer from "../tarea/TodoContainer"
 
 export default function BoardList() {
     const boards = useBoard()
-    console.log(boards)
+
     return (
         <>
-            {boards.flatMap(board => (
+            {boards.map((board) => (
                 <div>
                     <TodoContainer
                         title={board.title}

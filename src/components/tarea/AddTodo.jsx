@@ -5,7 +5,7 @@ import { useTodosDispatch } from "../../services/TodoContext";
 // eslint-disable-next-line 
 export default function AddTodo() {
     const [descripcion, setDescripcion] = useState('')
-    const [index, setIndex] = useState(datos.length + 1)
+    const [index, setIndex] = useState(datos.length)
     const dispatch = useTodosDispatch()
 
     function handleOnSubmit(e) {

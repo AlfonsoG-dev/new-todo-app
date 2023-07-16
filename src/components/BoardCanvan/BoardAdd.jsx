@@ -12,7 +12,8 @@ export default function BoardAdd() {
         dispatch({
             type: "agregar",
             id: index,
-            title: title
+            title: title,
+            tareas: []
         })
         setTitle('')
         setIndex(index + 1)
