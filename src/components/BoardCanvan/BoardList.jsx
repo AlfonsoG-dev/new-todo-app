@@ -7,11 +7,9 @@ export default function BoardList() {
     return (
         <>
             {boards.map((board) => (
-                <div>
+                <div key={board.id}>
                     <TodoContainer
                         title={board.title}
-                        //todo: verificar porque no está tomando la key del board o cual será la key
-                        key={board.id}
                     />
                 </div>
             ))}
