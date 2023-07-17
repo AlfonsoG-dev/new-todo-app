@@ -1,18 +1,19 @@
-export function boardRecuder(boards = [], action = {}) {
+export function boardReducer(boards = [], action) {
 
     if (action.type === "agregar") {
         return [
             ...boards,
             {
                 id: action.id,
-                title: action.title
+                title: action.title,
+                tareas: action.tareas
 
             }
         ]
     } else if (action.type === "editar") {
         return boards.map((board) => {
-            if (board.id === action.id) {
-                return action
+            if (board.id === action.board.id) {
+                return action.board
             } else {
                 return board
             }
