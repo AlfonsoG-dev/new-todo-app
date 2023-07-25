@@ -1,44 +1,37 @@
-.container {
-    display: grid;
-    grid-template-columns: 60%;
+.board-container {
+    display: flex;
+    align-items: center;
+
 }
 
-.tarea-container {
+.todo {
     padding-left: 10px;
-    background-color: #384554;
-    color: #a195ba;
+    background-color: #474d4caf;
 }
 
-.tareas {
-    background-color: #56686e;
-    color: white;
-    text-align: justify;
+.todo-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
 }
 
-.tarea {
-    background-color: #86a6a1;
-    height: auto;
-    color: black;
+.todo-content {
+    background-color: #04a0fa2d;
 }
 
-.tarea-options {
-    padding: 5px;
+.todo-options {
     display: flex;
     gap: 10px;
 }
 
-.tarea-completada {
-    text-decoration: line-through;
-    background-color: #86a6a1;
+
+.todo-complete {
     color: red;
-}
-
-.subtarea {
-    background-color: #56686e;
-}
-
-.subtarea-completada {
-    background-color: #56686e;
     text-decoration: line-through;
+}
+
+.subtodo-complete {
     color: black;
+    text-decoration: line-through;
 }

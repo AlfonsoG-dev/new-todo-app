@@ -24,7 +24,7 @@ export default function AddTodo() {
     }
 
     return (
-        <div className="new-tarea">
+        <div>
             <form onSubmit={handleOnSubmit}>
                 <label htmlFor="descripcion">
                     <input

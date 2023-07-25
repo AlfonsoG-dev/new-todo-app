@@ -5,15 +5,14 @@ export default function TodoContainer({ title }) {
 
     return (
         <TodoProvider>
-            <div className="tarea-container">
-
+            <div className="todo">
                 <h1>{title}</h1>
                 <AddTodo
                 />
-                <>
+                <div className="todo-content">
                     <TodoList
                     />
-                </>
+                </div>
             </div>
         </TodoProvider>
     )

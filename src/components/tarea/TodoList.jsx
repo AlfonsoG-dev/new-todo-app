@@ -3,7 +3,7 @@ import Todo from "./Todo"
 export default function TodoList() {
     const tareas = useTodos()
     return (
-        <ul className="tareas">
+        <ul >
             {tareas.map(tarea => (
                 <Todo
                     tarea={tarea}

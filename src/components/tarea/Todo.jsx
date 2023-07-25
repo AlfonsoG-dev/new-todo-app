@@ -17,7 +17,7 @@ export default function Todo({ tarea }) {
     if (editada) {
         content = (
             <form onSubmit={handleEditarTarea} id="form-edicion">
-                <label htmlFor="">
+                <label htmlFor="">*
 
                     <textarea
                         form="form-edicion"
@@ -34,7 +34,7 @@ export default function Todo({ tarea }) {
                         })}
                     />
                 </label>
-                <div className="tarea-options">
+                <div className="todo-options">
 
                     <button><AiFillPlusCircle /></button>
                 </div>
@@ -44,7 +44,7 @@ export default function Todo({ tarea }) {
         content = (
             <>
                 {tarea.descripcion}
-                <div className="tarea-options" >
+                <div className="todo-options" >
                     <button onClick={() => setEditada(true)}><AiFillEdit /></button>
                     <button onClick={() => dispatch({
                         type: "eliminar",
@@ -60,7 +60,7 @@ export default function Todo({ tarea }) {
         <li>
             {!tarea.completada ? (
                 <>
-                    <div className="tarea">
+                    <div className="todo">
                         <input
                             type="checkbox"
                             value={tarea.completada}
@@ -77,7 +77,7 @@ export default function Todo({ tarea }) {
                 </>
             ) : (
                 <>
-                    <div className="tarea-completada">
+                    <div className="todo-complete">
                         <input
                             type="checkbox"
                             value={tarea.completada}
@@ -94,11 +94,11 @@ export default function Todo({ tarea }) {
                 </>
             )}
 
-            <div>
+            <>
                 <SubTareaContainer
                     tareaCompleta={tarea.completada}
                 />
-            </div>
+            </>
 
         </li >
     )

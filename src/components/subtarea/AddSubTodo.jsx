@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { AiFillPlusCircle } from "react-icons/ai";
 import { useSubTodoDispatch } from "../../services/SubTodoContext";
 import datos_subtodo from "../../store/db_subtodo";
@@ -22,7 +22,7 @@ export default function AddSubTarea() {
         }
     }
     return (
-        <div className="new-tarea">
+        <div className="new-todo">
             <form onSubmit={handleOnSubmit}>
                 <label htmlFor="descripcion">
                     <input

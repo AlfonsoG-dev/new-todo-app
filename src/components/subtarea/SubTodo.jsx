@@ -24,7 +24,7 @@ export default function SubTarea({ subtarea, tareaCompleta }) {
                         }
                     })}
                 />
-                <div className="tarea-options">
+                <div className="todo-options">
 
                     <button><AiFillPlusCircle /></button>
                 </div>
@@ -34,7 +34,7 @@ export default function SubTarea({ subtarea, tareaCompleta }) {
         content = (
             <>
                 {subtarea.descripcion}
-                <div className="tarea-options">
+                <div className="todo-options">
                     <button onClick={() => setEditada(true)}><AiFillEdit /></button>
                     <button onClick={() => dispatch({
                         type: "eliminar",
@@ -48,7 +48,7 @@ export default function SubTarea({ subtarea, tareaCompleta }) {
         <li>
             {!subtarea.completada && tareaCompleta == false ? (
                 <>
-                    <div className="subtarea">
+                    <div className="subtodo">
                         <input
                             type="checkbox"
                             value={subtarea.completada}
@@ -64,7 +64,7 @@ export default function SubTarea({ subtarea, tareaCompleta }) {
                     </div>
                 </>
             ) : (
-                <div className="subtarea-completada">
+                <div className="subtodo-complete">
                     <input
                         type="checkbox"
                         value={subtarea.completada}

@@ -19,7 +19,7 @@ export default function BoardAdd() {
         setIndex(index + 1)
     }
     return (
-        <>
+        <div className="board-container">
             <form onSubmit={handleOnSubmit}>
                 <label htmlFor="">
                     <input
@@ -31,6 +31,6 @@ export default function BoardAdd() {
                 </label>
                 <button><AiFillPlusCircle /></button>
             </form>
-        </>
+        </div>
     )
 }
