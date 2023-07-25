@@ -6,7 +6,7 @@ import BoardList from "./BoardList";
 export default function TodoBoard({ n_title = '' }) {
     return (
         <BoardProvider>
-            <div>
+            <div className="container">
                 <BoardAdd />
                 <BoardList />
             </div>
